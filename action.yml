@@ -1,4 +1,4 @@
-name: 'CycloneDX .NET Generate BOM'
+name: 'CycloneDX .NET Generate SBOM'
 author: Patrick Dwyer
 description: 'Github action to generate a CycloneDX BOM for .NET projects'
 inputs:
