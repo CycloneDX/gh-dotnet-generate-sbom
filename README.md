@@ -30,7 +30,7 @@ Optionally provide the GitHub action bearer token for license resolution (exampl
 ## Example usage
 
 ```
-uses: CycloneDX/cyclonedx-dotnet-generate-sbom@master
+uses: CycloneDX/gh-dotnet-generate-sbom@master
 with:
   path: 'Example.sln'
   githubBearerToken: ${{ secrets.GITHUB_TOKEN }}
