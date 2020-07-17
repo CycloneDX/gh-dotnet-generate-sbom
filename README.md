@@ -30,8 +30,16 @@ Optionally provide the GitHub action bearer token for license resolution (exampl
 ## Example usage
 
 ```
-uses: CycloneDX/gh-dotnet-generate-sbom@master
-with:
-  path: 'Example.sln'
-  githubBearerToken: ${{ secrets.GITHUB_TOKEN }}
+- name: Generate XML SBOM
+  uses: CycloneDX/gh-dotnet-generate-sbom@v1
+  with:
+    path: ./CycloneDX.sln
+    github-bearer-token: ${{ secrets.GITHUB_TOKEN }}
+
+- name: Generate JSON SBOM
+  uses: CycloneDX/gh-dotnet-generate-sbom@master
+  with:
+    path: ./CycloneDX.sln
+    json: true
+    github-bearer-token: ${{ secrets.GITHUB_TOKEN }}
 ```
