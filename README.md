@@ -23,7 +23,7 @@ Be sure to quote paths with spaces.
 
 Produce a JSON BOM instead of XML, set to any value instead of false.
 
-### `githubBearerToken`
+### `github-bearer-token`
 
 Optionally provide the GitHub action bearer token for license resolution (example below).
 
