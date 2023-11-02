@@ -33,11 +33,13 @@ try {
   const out = core.getInput('out');
   const json = core.getInput('json') != 'false';
   const githubBearerToken = core.getInput('github-bearer-token');
+  const logBomContents = core.getInput('log-bom-contents') == 'true';
 
   console.log('Options:');
   console.log(`  path: ${path}`);
   console.log(`  out: ${out}`);
   console.log(`  json: ${json}`);
+  console.log(`  log-bom-contents: ${logBomContents}`);
 
   let command = `dotnet CycloneDX ${path} --out ${out}`
   if (json) command += ' --json';
@@ -52,12 +54,10 @@ try {
   output = execSync(command, { encoding: 'utf-8' });
   console.log(output);
 
-  console.log('BOM Contents:');
-  if (json) {
-    let bomContents = fs.readFileSync(`${out}/bom.json`).toString('utf8');
-    console.log(bomContents);
-  } else {
-    let bomContents = fs.readFileSync(`${out}/bom.xml`).toString('utf8');
+  if (logBomContents) {
+    console.log('BOM Contents:');
+    const bomFormat = json ? 'json' : 'xml';
+    let bomContents = fs.readFileSync(`${out}/bom.${bomFormat}`).toString('utf8');
     console.log(bomContents);
   }
 } catch (error) {
